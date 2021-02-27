@@ -1,0 +1,53 @@
+<div class="card shadow-lg p-3 mb-5 bg-body rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="card-body">
+
+            <div class="mb-3 row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="name" formControlName="txtName" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="MobileNumber" class="col-sm-2 col-form-label">Mobile Number</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="MobileNumber" formControlName="txtMobileNumber" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="cnic" class="col-sm-2 col-form-label">CNIC</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="cnic" formControlName="txtCnic" required>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-body">
+            <button type="submit" class="btn btn-outline-success shadow p-3  bg-body rounded ">Submit</button>
+            <button type="button" class="btn btn-outline-success shadow p-3  bg-body rounded m-3" [routerLink]="['']">Back</button>
+
+        </div>
+    </form>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">CNIC</th>
+                <th scope="col">Sim</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customerList of getCustomers">
+                <th scope="row">{{customerList.serCustomerId}}</th>
+                <td>{{customerList.txtName}}</td>
+                <td>{{customerList.txtMobileNumber}}</td>
+                <td>{{customerList.txtCnic}}</td>
+                <td>{{customerList.txtSimName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

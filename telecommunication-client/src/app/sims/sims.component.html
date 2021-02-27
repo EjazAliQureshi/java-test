@@ -1,0 +1,42 @@
+<div class="card shadow-lg p-3 mb-5 bg-body rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label for="simname" class="col-sm-2 col-form-label">Sim Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="simname" formControlName="txtSimName">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="SimNumber" class="col-sm-2 col-form-label">Sim Number</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="SimNumber" formControlName="txtSimNumber">
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-outline-success shadow p-3  bg-body rounded ">Submit</button>
+            <button type="button" class="btn btn-outline-success shadow p-3  bg-body rounded m-3" [routerLink]="['']">Back</button>
+
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Sim Name</th>
+                <th scope="col">Mobile Number</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let simList of getSims">
+                <th scope="row">{{simList.serSimId}}</th>
+                <td>{{simList.txtSimName}}</td>
+                <td>{{simList.txtSimNumber}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
